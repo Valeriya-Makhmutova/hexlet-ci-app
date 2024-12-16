@@ -1,13 +1,11 @@
 name: show-hello-world
-# on – определяет события, которые запускают воркфлоу
 on: push
 jobs:
-  # build – произвольно выбранное имя задания
-  # их может быть больше одного
-  build1:
-    # операционная система для работы воркфлоу
+  build:
     runs-on: ubuntu-latest
-    steps: # список шагов, которые надо выполнить
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
       - run: make setup
       - run: make test
-      - run: male lint
+      - run: make lint
